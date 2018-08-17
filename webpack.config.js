@@ -58,35 +58,6 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    { // CSSをバンドルするための機能
-                        loader: 'css-loader',
-                        options: {
-                            url: true, // オプションでCSS内のurl()メソッドの取り込みを禁止する
-                            sourceMap: isDev,
-                            // 0 => no loaders (default);
-                            // 1 => postcss-loader;
-                            // 2 => postcss-loader, sass-loader
-                            importLoaders: 2
-                        }
-                    },
-                    { // autoprefixer を利用するために postcss を利用
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: isDev
-                        }
-                    },
-                    { // Sassをバンドルするための機能
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: isDev
-                        }
-                    }
-                ]
             }
         ]
     },
